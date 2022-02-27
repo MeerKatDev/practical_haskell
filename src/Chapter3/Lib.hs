@@ -26,10 +26,10 @@ multiplyByN n = \x -> n * x
 -- exercise 3.2
 
 filterOnes :: (Num a, Eq a) => [a] -> [a]
-filterOnes = filter (\x -> x == 1)
+filterOnes = filter (==1)
 
 filterANumber :: (Num a, Eq a) => a -> [a] -> [a]
-filterANumber n = filter (\x -> x == n)
+filterANumber n = filter (==n)
 
 filterNot' :: (a -> Bool) -> [a] -> [a]
 filterNot' f = filter $ not . f

@@ -35,6 +35,10 @@ executables:
     - -with-rtsopts=-N
     dependencies:
     - practical-haskell
+    # https://stackoverflow.com/a/67521855/1096030
+    when:
+    - condition: false
+      other-modules: Paths_practical_haskell
 
 tests:
   practical-haskell-test:
