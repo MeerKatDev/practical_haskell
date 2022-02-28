@@ -9,9 +9,9 @@ version:        0.1.0.0
 description:    Please see the README on GitHub at <https://github.com/githubuser/practical-haskell#readme>
 homepage:       https://github.com/githubuser/practical-haskell#readme
 bug-reports:    https://github.com/githubuser/practical-haskell/issues
-author:         Author name here
+author:         Luca Campobasso
 maintainer:     example@example.com
-copyright:      2022 Author name here
+copyright:      2022 Luca Campobasso
 license:        BSD3
 license-file:   LICENSE
 build-type:     Simple
@@ -32,20 +32,10 @@ library
   other-modules:
       Paths_practical_haskell
   hs-source-dirs:
-      src/
+      src
   ghc-options: -Wall
   build-depends:
       base >=4.7 && <5
-  default-language: Haskell2010
-
-executable practical-haskell-exe
-  main-is: Main.hs
-  hs-source-dirs:
-      app
-  ghc-options: -Wall -threaded -rtsopts -with-rtsopts=-N
-  build-depends:
-      base >=4.7 && <5
-    , practical-haskell
   default-language: Haskell2010
 
 test-suite spec

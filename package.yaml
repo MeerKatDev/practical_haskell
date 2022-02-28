@@ -2,9 +2,9 @@ name:                practical-haskell
 version:             0.1.0.0
 github:              "githubuser/practical-haskell"
 license:             BSD3
-author:              "Author name here"
+author:              "Luca Campobasso"
 maintainer:          "example@example.com"
-copyright:           "2022 Author name here"
+copyright:           "2022 Luca Campobasso"
 
 ghc-options: -Wall
 
@@ -25,22 +25,7 @@ dependencies:
 - base >= 4.7 && < 5
 
 library:
-  source-dirs: src/
-
-executables:
-  practical-haskell-exe:
-    main:                Main.hs
-    source-dirs:         app
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
-    dependencies:
-    - practical-haskell
-    # https://stackoverflow.com/a/67521855/1096030
-    when:
-    - condition: false
-      other-modules: Paths_practical_haskell
+  source-dirs: src
 
 tests:
   spec:
