@@ -75,3 +75,25 @@ filterGovOrgs' =
             GovOrg{} -> True
             _ -> False
         )
+
+{--
+    [f x y = ..]
+    =:= [f x = \y -> ..]
+    =:= [ f = \x y -> ...]
+    =:= [ f = \x -> \y -> ..]
+
+--}
+
+isPalindrome :: String -> Bool
+isPalindrome s = s == (reverse s)
+
+-- currying and uncurrying
+-- (uncurry max) (3,2) == max 3 2
+
+tuplesMax :: [(Integer, Integer)] -> [Integer]
+tuplesMax = map (\(x,y) -> max x y)
+
+tuplesMax' :: [(Integer, Integer)] -> [Integer]
+tuplesMax' = map (uncurry max)
+
+
