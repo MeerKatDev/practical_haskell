@@ -97,11 +97,11 @@ tuplesMax' :: [(Integer, Integer)] -> [Integer]
 tuplesMax' = map (uncurry max)
 
 foldr' :: (a -> b -> b) -> b -> [a] -> b
-foldr' f initial [] = initial
+foldr' _ initial [] = initial
 foldr' f initial (x:xs) = f x (foldr' f initial xs)
 
 -- extending types for custom representation
-data InfNumber a = MinusInf | Number a | PlusInf deriving (Show)
+data InfNumber a = MinusInf | Number a | PlusInf deriving (Show, Eq)
 
 infMax :: Ord a => InfNumber a -> InfNumber a -> InfNumber a
 infMax MinusInf x = x
