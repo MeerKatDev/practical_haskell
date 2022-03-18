@@ -29,6 +29,9 @@ library
       Chapter3.BidirectionalRange
       Chapter3.Lib
       Chapter3.Range
+      Chapter4.BinaryTrees
+      Chapter4.Lib
+      Chapter5.Lib
   other-modules:
       Paths_practical_haskell
   hs-source-dirs:
@@ -36,6 +39,7 @@ library
   ghc-options: -Wall
   build-depends:
       base >=4.7 && <5
+    , containers
   default-language: Haskell2010
 
 test-suite spec
@@ -45,12 +49,15 @@ test-suite spec
       Chapter2.LibSpec
       Chapter3.LibSpec
       Chapter3.RangeSpec
+      Chapter4.LibSpec
+      Chapter5.LibSpec
       Paths_practical_haskell
   hs-source-dirs:
       test
   ghc-options: -Wall
   build-depends:
       base >=4.7 && <5
+    , containers
     , hspec ==2.*
     , practical-haskell
   default-language: Haskell2010
