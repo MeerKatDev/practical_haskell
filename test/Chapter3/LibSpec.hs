@@ -3,7 +3,7 @@ module Chapter3.LibSpec (spec) where
 import Test.Hspec
 import Chapter3.Lib
 import Control.Exception (evaluate)
-import Prelude hiding (foldr, foldl, product, all)
+import Prelude hiding (foldr, foldl, product, all, elem)
 
 spec :: Spec
 spec = do
@@ -13,6 +13,15 @@ spec = do
     let sndGovOrg = GovOrg 4 "Italy"
     let nonGovOrg = Individual 2 $ Person "a" "b"
     let clientsList = [fstGovOrg, sndGovOrg, nonGovOrg]::[Client Integer]
+
+    -- from the book, page 91
+    let listOfClients
+            = [ Individual 2 (Person "H G" "Wells")
+            , GovOrg 3 "NTTF"
+            , Company 4 "Wormhole Inc." 1 (Person "Karl" "Schwarzschild") "Physicist"
+            , Individual 5 (Person "Doctor" "")
+            , Individual 6 (Person "Sarah" "Jane")
+            ]
 
     describe "doubleMapf" $ do
         it "can map with two elements" $ do
@@ -59,5 +68,10 @@ spec = do
     describe "minimumBy" $ do
         it "gives the minimum by first using a transform" $ do
             minimumBy (\x -> -x) basicList `shouldBe` 3
+
+    describe "elem" $ do
+        it "finds out if sth is an element of a list" $ do
+            elem 1 basicList `shouldBe` True
+            elem 4 basicList `shouldBe` False
 
 

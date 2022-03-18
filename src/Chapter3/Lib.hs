@@ -3,7 +3,8 @@
 
 module Chapter3.Lib where
 
-import Prelude hiding (foldr, foldl, product, all)
+import Prelude hiding (foldr, foldl, product, all, elem)
+import qualified Data.List as L
 
 mapf :: (a -> b) -> [a] -> [b]
 mapf _ [] = []
@@ -147,3 +148,18 @@ minimumBy _ [a] = a
 minimumBy f (x:y:xs) = if f x <= f y
     then minimumBy f (x:xs)
     else minimumBy f (y:xs)
+
+-- write `elem` using find and pattern matching
+-- how?
+elem :: (Eq a) => a -> [a] -> Bool
+elem e lst =
+    case (L.find (==e) lst) of
+        Just _  -> True
+        Nothing -> False
+
+-- defining custom ordering
+compareClient :: Client a -> Client a -> Ordering
+compareClient (Individual{person = p1}) (Individual{person = p2}) = compare (firstName p1) (firstName p2)
+compareClient (Individual {}) _ = GT
+compareClient _ (Individual {}) = LT
+compareClient c1 c2             = compare (clientName c1) (clientName c2)
